@@ -30,7 +30,15 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            {/*header*/}
+            <main className="min-h-screen">{children}</main>
+            {/* footer */}
+            <footer>
+              <div>
+                <p>G6 Working on it</p>
+              </div>
+            </footer>
+
           </ThemeProvider>
       </body>
     </html>
