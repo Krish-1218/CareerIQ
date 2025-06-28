@@ -1,18 +1,32 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image"; 
+import { Button } from "./ui/button";
+import { LayoutDashboard } from "lucide-react";
 
 const Header = () => {
-    return  <header>
-        <nav>
+    return  <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
+
+        <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
             <Link href="/">
               <Image
               src ="/logo.png" 
               alt="CareerIQ Logo" 
               width={300} 
               height={100} 
-              className= "h-10 py-1 w-auto object-fill" />
+              className= "h-11 py-1 w-auto object-fill" />
             </Link>
+
+            <div>
+                <SignedIn>
+                    <Link href={'/dashboard'}>
+                    <Button>
+                        <LayoutDashboard className="h-4 w-4"/>
+                        Industry Insights
+                    </Button>
+                    </Link>
+                </SignedIn>
+            </div>
         </nav>
 
         <SignedOut>
