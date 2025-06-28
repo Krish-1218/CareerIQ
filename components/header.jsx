@@ -9,9 +9,9 @@ const Header = () => {
               <Image
               src ="/logo.png" 
               alt="CareerIQ Logo" 
-              width={200} 
-              height={60} 
-              className= "h-20 py-1 w-auto object-fill" />
+              width={300} 
+              height={100} 
+              className= "h-10 py-1 w-auto object-fill" />
             </Link>
         </nav>
 
