@@ -1,3 +1,5 @@
+"use client";
+
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,6 +25,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+        {/* Logo */}
         <Link href="/">
           <Image
             src="/logo.png"
@@ -33,56 +36,81 @@ const Header = () => {
           />
         </Link>
 
+        {/* Right-side Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Only visible to signed-in users */}
           <SignedIn>
-            <Link href={"/dashboard"}>
-              <Button>
+            {/* Dashboard Button */}
+            <Link href="/dashboard">
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex items-center gap-2">
                 <LayoutDashboard className="h-4 w-4" />
-                <span className="hidden md:block">Industry Insights </span>
+                Industry Insights
+              </Button>
+              <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                <LayoutDashboard className="h-4 w-4" />
               </Button>
             </Link>
+
+            {/* Growth Tools Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button className="flex items-center gap-2">
+                  <StarsIcon className="h-4 w-4" />
+                  <span className="hidden md:block">Growth Tools</span>
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuLabel>AI Tools</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/resume" className="flex items-center gap-2">
+                    <FileText className="h-4 w-4" />
+                    Build Resume
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/ai-cover-letter"
+                    className="flex items-center gap-2">
+                    <PenBox className="h-4 w-4" />
+                    Cover Letter
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/interview" className="flex items-center gap-2">
+                    <GraduationCap className="h-4 w-4" />
+                    Interview Prep
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </SignedIn>
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Button>
-                <StarsIcon className="h-4 w-4" />
-                <span className="hidden md:block">Growth Tools</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem asChild>
-                <Link href="/resume" className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  Build Resume
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link
-                  href="/ai-cover-letter"
-                  className="flex items-center gap-2">
-                  <PenBox className="h-4 w-4" />
-                  Cover Letter
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/interview" className="flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4" />
-                  Interview Prep
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          ̥̥
+
+          {/* If not signed in */}
+          <SignedOut>
+            <SignInButton>
+              <Button variant="outline">Sign In</Button>
+            </SignInButton>
+          </SignedOut>
+
+          {/* User Button */}
+          <SignedIn>
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-10 h-10",
+                  userButtonPopoverCard: "shadow-xl",
+                  userPreviewMainIdentifier: "font-semibold",
+                },
+              }}
+              afterSignOutUrl="/"
+            />
+          </SignedIn>
         </div>
       </nav>
-
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
     </header>
   );
 };
