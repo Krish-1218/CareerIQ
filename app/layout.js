@@ -1,31 +1,33 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import  Header  from "@/components/header";
+import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
-const inter = Inter({subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "CareerIQ",
-  description: "An AI-powered platform that helps job seekers and professionals make smarter career choices through personalized job recommendations, industry insights, interview practice, and resume building.",
+  description:
+    "An AI-powered platform that helps job seekers and professionals make smarter career choices through personalized job recommendations, industry insights, interview practice, and resume building.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className}`}
-      >
-           <ThemeProvider
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className}`}>
+          <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
-            disableTransitionOnChange
-          >
+            disableTransitionOnChange>
             {/*header*/}
-            <Header/>
+            <Header />
             <main className="min-h-screen">{children}</main>
             {/* footer */}
             <footer className="bg-muted/50 py-12">
@@ -33,10 +35,9 @@ export default function RootLayout({ children }) {
                 <p>G6 Working on it</p>
               </div>
             </footer>
-
           </ThemeProvider>
-      </body>
-    </html>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
