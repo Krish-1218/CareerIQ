@@ -1,32 +1,32 @@
 export const faqs = [
   {
-    question: "What makes Sensai unique as a career development tool?",
+    question: "Why should I choose CareerIQ for my professional growth?",
     answer:
-      "Sensai combines AI-powered career tools with industry-specific insights to help you advance your career. Our platform offers three main features: an intelligent resume builder, a cover letter generator, and an adaptive interview preparation system. Each tool is tailored to your industry and skills, providing personalized guidance for your professional journey.",
+      "CareerIQ blends advanced AI tools with real-time market insights to help you move forward in your career. From creating a powerful resume to crafting persuasive cover letters and preparing for interviews, our features are tailored to your skills and industry, offering guidance that’s both personal and practical.",
   },
   {
-    question: "How does Sensai create tailored content?",
+    question: "How does CareerIQ personalize its recommendations?",
     answer:
-      "Sensai learns about your industry, experience, and skills during onboarding. It then uses this information to generate customized resumes, cover letters, and interview questions. The content is specifically aligned with your professional background and industry standards, making it highly relevant and effective.",
+      "During your onboarding, CareerIQ gathers details about your background, experience, and goals. Using this information, our AI crafts resumes, cover letters, and interview questions that reflect your unique profile and meet current industry expectations.",
   },
   {
-    question: "How accurate and up-to-date are Sensai's industry insights?",
+    question: "Are CareerIQ’s market insights reliable and current?",
     answer:
-      "We update our industry insights weekly using advanced AI analysis of current market trends. This includes salary data, in-demand skills, and industry growth patterns. Our system constantly evolves to ensure you have the most relevant information for your career decisions.",
+      "Yes. CareerIQ refreshes its career insights every week through AI-driven analysis of industry reports, hiring trends, and salary benchmarks. This ensures you’re always equipped with the latest information to make confident career moves.",
   },
   {
-    question: "Is my data secure with Sensai?",
+    question: "How does CareerIQ protect my personal data?",
     answer:
-      "Absolutely. We prioritize the security of your professional information. All data is encrypted and securely stored using industry-standard practices. We use Clerk for authentication and never share your personal information with third parties.",
+      "Your privacy is our top priority. We secure all your information using encryption and trusted security protocols. With Clerk authentication, your data remains safe, and we never share your personal details with outside parties.",
   },
   {
-    question: "How can I track my interview preparation progress?",
+    question: "Can CareerIQ track my improvement in interview skills?",
     answer:
-      "Sensai tracks your performance across multiple practice interviews, providing detailed analytics and improvement suggestions. You can view your progress over time, identify areas for improvement, and receive AI-generated tips to enhance your interview skills based on your responses.",
+      "Absolutely. CareerIQ monitors your progress across multiple practice sessions, offering analytics and feedback on your performance. You’ll see where you excel, what needs work, and receive targeted AI tips to boost your confidence and results.",
   },
   {
-    question: "Can I edit the AI-generated content?",
+    question: "Can I make changes to what CareerIQ creates for me?",
     answer:
-      "Yes! While Sensai generates high-quality initial content, you have full control to edit and customize all generated resumes, cover letters, and other content. Our markdown editor makes it easy to refine the content to perfectly match your needs.",
+      "Of course. CareerIQ provides polished, ready-to-use content, but you have complete freedom to edit it. Our built-in markdown editor lets you tweak resumes, cover letters, and more until they match your exact style and goals.",
   },
 ];
