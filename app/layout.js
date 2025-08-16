@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
+import { checkUser } from "@/lib/checkUser";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
