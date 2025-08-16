@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,23 +26,21 @@ const HeroSection = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="https://www.youtube.com/roadsidecoder">
+          <Link href="https://www.youtube.com">
             <Button size="lg" variant="outline" className="px-8">
               Watch Demo
             </Button>
           </Link>
         </div>
         <div>
-          <div>
-            <Image
-              src="/AI-Banner.jpg"
-              width={1280}
-              height={720}
-              alt="Dashboard Preview"
-              className="rounded-lg shadow-2xl border mx-auto"
-              priority
-            />
-          </div>
+          <Image
+            src="/AI-Banner.jpg" // choose correct image
+            width={1280}
+            height={720}
+            alt="Dashboard Preview"
+            className="rounded-lg shadow-2xl border mx-auto"
+            priority
+          />
         </div>
       </div>
     </section>
