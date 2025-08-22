@@ -22,8 +22,26 @@ import useFetch from "@/hooks/use-fetch";
 
 const formatDisplayDate = (dateString) => {
   if (!dateString) return "";
-  const date = parse(dateString, "yyyy-MM", new Date());
-  return format(date, "MMM yyyy");
+
+  try {
+    // Handle "yyyy-MM" (from <input type="month" />)
+    if (/^\d{4}-\d{2}$/.test(dateString)) {
+      const date = parse(dateString, "yyyy-MM", new Date());
+      return format(date, "MMM yyyy");
+    }
+
+    // Handle full ISO date like "2026-06-01"
+    if (/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+      const date = new Date(dateString);
+      return format(date, "MMM yyyy");
+    }
+
+    // Fallback: just return raw value (avoids crash)
+    return dateString;
+  } catch (e) {
+    console.error("Date parse error:", e, dateString);
+    return dateString;
+  }
 };
 
 export function EntryForm({ type, entries, onChange }) {
